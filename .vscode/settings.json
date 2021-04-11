@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/home/aanxel/.local/share/virtualenvs/ProyectoNEURO-cMvZyS9u/bin/python"
+    "python.pythonPath": "/home/aanxel/.local/share/virtualenvs/ProyectoNEURO-cMvZyS9u/bin/python",
+    "liveshare.shareExternalFiles": true
 }
