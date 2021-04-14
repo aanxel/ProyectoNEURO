@@ -6,10 +6,13 @@ name = "pypi"
 [packages]
 numpy = "*"
 matplotlib = "*"
-tensorboard = "*"
 keras = "*"
+scikit-learn = "*"
+tensorflow = "*"
+pillow = "*"
 
 [dev-packages]
+flake8 = "*"
 
 [requires]
 python_version = "3.8"

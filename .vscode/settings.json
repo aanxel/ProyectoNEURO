@@ -1,4 +1,5 @@
 {
     "python.pythonPath": "/home/joaquin/.local/share/virtualenvs/proyectoNEURO-1YLfjs8w/bin/python",
-    "liveshare.shareExternalFiles": true
+    "liveshare.shareExternalFiles": true,
+    "python.formatting.provider": "yapf"
 }

@@ -7,6 +7,9 @@ __pycache__/
 .vscode/
 .idea/
 
+# Tensorboard
+logs/
+
 # C extensions
 *.so
 
