@@ -24,13 +24,13 @@ model.compile(optimizer=SGD(),
 log_dir = "logs/fit/"
 shutil.rmtree('./' + log_dir, ignore_errors=True)
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir,
-                                                      histogram_freq=5,
-                                                      update_freq=5,
+                                                      histogram_freq='epoch',
+                                                      update_freq='epoch',
                                                       write_images=True)
 model.fit(X_train,
           y_train,
           epochs=100,
           validation_split=0.20,
           callbacks=[tensorboard_callback],
-          verbose=0)
+          verbose=1)
 model.evaluate(X_test, y_test)

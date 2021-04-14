@@ -10,6 +10,8 @@ keras = "*"
 scikit-learn = "*"
 tensorflow = "*"
 pillow = "*"
+opencv-python = "*"
+pandas = "*"
 
 [dev-packages]
 flake8 = "*"
