@@ -3,11 +3,12 @@ import numpy as np
 from PIL import Image
 import pandas as pd
 
-
-DATA_FILE = 'data/data_file.csv'
+DATA_DIR = 'data'
+DATA_FILE = f'{DATA_DIR}/data_file.csv'
 IM_EXT = 'jpg'
 N_ZEROS = 4
-IMG_BASE_DIR = 'data/train/'
+IMG_BASE_DIR = f'{DATA_DIR}/train/'
+DUMP_BASE_PATH = f'{DATA_DIR}/dump'
 
 
 def load_frame(path, dim=(128, 128), bw=True, norm=True):
@@ -47,3 +48,22 @@ def load_dataset(por_train=0.8, data_file=DATA_FILE, img_base_dir=IMG_BASE_DIR,
     X_train, X_test = X[:separador], X[separador:]
     y_train, y_test = y[:separador], y[separador:]
     return X_train, X_test, y_train, y_test
+
+
+def load(load_base_path=DUMP_BASE_PATH):
+    X_train = np.load(f'{load_base_path}_X_train', allow_pickle=True)
+    X_test = np.load(f'{load_base_path}_X_test', allow_pickle=True)
+    y_train = np.load(f'{load_base_path}_y_train', allow_pickle=True)
+    y_test = np.load(f'{load_base_path}_y_test', allow_pickle=True)
+    return X_train, X_test, y_train, y_test
+
+
+def dump(por_train=0.8, data_file=DATA_FILE, img_base_dir=IMG_BASE_DIR,
+         dim=(128, 128), bw=True, norm=True, dump_base_path=DUMP_BASE_PATH):
+    X_train, X_test, y_train, y_test = load_dataset(
+        por_train=por_train, data_file=data_file, img_base_dir=img_base_dir,
+        dim=dim, bw=bw, norm=norm)
+    X_train.dump(f'{dump_base_path}_X_train')
+    X_test.dump(f'{dump_base_path}_X_test')
+    y_train.dump(f'{dump_base_path}_y_train')
+    y_test.dump(f'{dump_base_path}_y_test')
