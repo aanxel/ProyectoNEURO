@@ -38,7 +38,7 @@ def load_dataset(por_train=0.8, data_file=DATA_FILE, img_base_dir=IMG_BASE_DIR,
     y = np.unique(df[:, 1], return_inverse=True)[1]
     for frame_base_path in df[1:, 1:3]:
         path = f'{img_base_dir}{frame_base_path[0]}/{frame_base_path[1]}'
-        X.append(load_video(base_path=path, n_frames=max_frames, dim=dim, 
+        X.append(load_video(base_path=path, n_frames=max_frames, dim=dim,
                             bw=bw, norm=norm))
     X = np.array(X)
     if bw:
