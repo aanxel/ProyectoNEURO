@@ -37,7 +37,7 @@ def load_dataset(por_train=0.8, data_file=DATA_FILE, img_base_dir=IMG_BASE_DIR,
     max_frames = df[:, -1].min()
     X = []
     y = np.unique(df[:, 1], return_inverse=True)[1]
-    for frame_base_path in df[1:, 1:3]:
+    for frame_base_path in df[:, 1:3]:
         path = f'{img_base_dir}{frame_base_path[0]}/{frame_base_path[1]}'
         X.append(load_video(base_path=path, n_frames=max_frames, dim=dim,
                             bw=bw, norm=norm))
@@ -67,3 +67,4 @@ def dump(por_train=0.8, data_file=DATA_FILE, img_base_dir=IMG_BASE_DIR,
     X_test.dump(f'{dump_base_path}_X_test')
     y_train.dump(f'{dump_base_path}_y_train')
     y_test.dump(f'{dump_base_path}_y_test')
+    return X_train, X_test, y_train, y_test
