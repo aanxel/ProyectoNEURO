@@ -28,7 +28,7 @@ def load_video(base_path, n_frames, dim=(128, 128), bw=True, norm=True):
     for n_frame in range(n_frames):
         frame_path = f'{base_path}-{str(n_frame + 1).zfill(N_ZEROS)}.{IM_EXT}'
         video.append(load_frame(frame_path, dim=dim, bw=bw, norm=norm))
-    return np.array(video)
+    return np.array(video[10:-10])
 
 
 def load_dataset(por_train=0.8, data_file=DATA_FILE, img_base_dir=IMG_BASE_DIR,
